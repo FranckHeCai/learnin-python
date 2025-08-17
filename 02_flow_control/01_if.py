@@ -42,3 +42,8 @@ if not fin_de_semana:
     print("A trabajar")
 else:
     print("A descansar")
+
+# Ternary operator
+otaku = True
+res = "Eres otaku" if otaku else "No eres otaku"
+print(res)
