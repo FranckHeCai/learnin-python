@@ -13,15 +13,22 @@ goal = 8
 
 def first_sum(nums, goal):
   print("Start")
-  for i in range(len(nums) - 1):
+  #for i in range(len(nums) - 1):
     # while j < len(nums)-1:
     #   if nums[i] + nums[j] == goal:
     #     return [i, j]
     #   j += 1
-    for j in range(i + 1, len(nums) - 1):
-      if nums[i] + nums[j] == goal:
-        return [i, j]
-  
+    # for j in range(i + 1, len(nums) - 1):
+    #   if nums[i] + nums[j] == goal:
+    #     return [i, j]
+  seen = {}
+  for index, value in enumerate(nums):
+    missing = goal - value
+    if missing in seen : 
+      return [seen[missing], index]
+    else:
+      seen[value] = index
+
   return None
 
 print(first_sum(nums, goal))
