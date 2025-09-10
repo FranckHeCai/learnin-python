@@ -1,18 +1,10 @@
-stars = int(input())
-size = (stars * 2)
-contador = 1
+lista = []
+lista_ordenada = []
 
-while contador < stars + 1:
-    print("*" * contador)
-    contador += 1
+for _ in range(0,5):
+  num = int(input(f"Numero {_ + 1}: "))
+  lista.append(num)
+  
 
-contador = stars - 1
+print(lista)
 
-# while contador > 0:
-#     prints = contador
-
-#     while prints < contador + 1:
-#         print("*" * prints)
-#         prints-= 1
-
-#     contador -= 1
