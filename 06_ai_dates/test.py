@@ -1,8 +1,10 @@
 import requests
 import json
+import os
 # Usar la API de GPT-4o de OpenAI
-
-api_key = "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"
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("OPENAI_KEY")
 def get_gpt4o_response(api_key, prompt):
 
   url = "https://api.openai.com/v1/chat/completions"
