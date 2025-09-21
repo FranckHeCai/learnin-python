@@ -26,8 +26,8 @@ api_posts = "https://jsonplaceholder.typicode.com/posts/"
 
 print("\nGET:")
 response = requests.get(api_posts)
-json = response.json()
-print(json[0])
+json_data = response.json()
+print(json_data[0])
 
 # Un POST
 print("\nPOST:")
@@ -74,9 +74,14 @@ try:
 except requests.exceptions.RequestException as e:
   print(f"Error en la solicitud: {e}")
 
+
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
 # Usar la API de GPT-4o de OpenAI
 
-api_key = "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"
+openai_api_key = os.getenv("OPENAI_KEY")
 def get_gpt4o_response(api_key, prompt):
 
   url = "https://api.openai.com/v1/chat/completions"
@@ -101,16 +106,16 @@ def get_gpt4o_response(api_key, prompt):
 
   return response.json()
 
-response = get_gpt4o_response(api_key, "¿Cuál es la capital de Francia?")
+response = get_gpt4o_response(openai_api_key, "¿Cuál es la capital de Francia?")
 
 print(json.dumps(response, indent = 2))
 
 # Llamar a la API de DeepSeek
 
-deepseek_api_key = "sk-bfd38c3c6e0c4b7cb04a7507dd8338e2"
-def get_gpt4o_response(api_key, prompt):
+deepseek_api_key = os.getenv("DEEPSEEK_KEY")
+def get_deepseek_response(api_key, prompt):
 
-  url = "	https://api.deepseek.com/v1/chat/completions"
+  url = "	https://api.deepseek.com/chat/completions"
   headers = {
     "Content-Type": "application/json", 
     "Authorization": f"Bearer {api_key}"
@@ -132,6 +137,6 @@ def get_gpt4o_response(api_key, prompt):
 
   return response.json()
 
-response = get_gpt4o_response(deepseek_api_key, "¿Cuál es la capital de Francia?")
+response = get_deepseek_response(deepseek_api_key, "¿Cuál es la capital de Francia?")
 
 print(json.dumps(response, indent = 2))
