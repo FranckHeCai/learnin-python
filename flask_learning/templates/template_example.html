@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Template</title>
+</head>
+
+<body>
+  <main>
+    <h1>This is a HTML template</h1>
+    <h2>{{content}}</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero et cupiditate obcaecati quasi tenetur, similique
+      pariatur earum amet tempora repellat at exercitationem incidunt totam saepe excepturi voluptate consequatur, in
+      hic.</p>
+    {% for character in list %}
+    <p>{{character}}</p>
+    {% endfor %}
+
+
+  </main>
+</body>
+
+</html>
+
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+</style>

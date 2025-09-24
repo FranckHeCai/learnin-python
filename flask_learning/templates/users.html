@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} User Page {% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for msg in messages %}
+      <p>{{msg}}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<h1>All Users Page</h1>
+{% for user in values %}
+  <p>Name: {{user.name}} Email: {{user.email}}</p>
+{% endfor %}
+{% endblock %}
